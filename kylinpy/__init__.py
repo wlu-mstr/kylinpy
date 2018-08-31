@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 from .kylinpy import Kylinpy
 
-__version__ = '0.0.999'
+__version__ = '1.5.0'
 
 __all__ = [
     'Kylinpy'
