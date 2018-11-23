@@ -39,6 +39,10 @@ class Cursor(object):
         ] for c in self._column_metas)
 
     def execute(self, query, *params, **kwargs):
+        for param in params:
+            for k,v in param.items():
+                query = query.replace('%('+k+')s', v)
+
         resp = self.connection.query(query).to_object
 
         self._column_metas = resp.get('columnMetas')
