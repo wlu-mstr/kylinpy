@@ -41,7 +41,7 @@ class Cursor(object):
     def execute(self, query, *params, **kwargs):
         for param in params:
             for k,v in param.items():
-                query = query.replace('%('+k+')s', v)
+                query = query.replace('%('+k+')s', str(v))
 
         resp = self.connection.query(query).to_object
 
